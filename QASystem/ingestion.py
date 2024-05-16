@@ -1,6 +1,6 @@
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import BedrockEmbeddings
 from langchain.llms.bedrock import Bedrock
 
@@ -13,6 +13,8 @@ import boto3
 ## bedrock client
 bedrock=boto3.client(service_name="bedrock-runtime")
 bedrock_embeddings=BedrockEmbeddings(model_id="amazon.titan-embed-text-v1",client=bedrock)
+# You need to place access request for "Titan Embeddings G1 - Text" 
+# from "Model Access" section of AWS Bedrock page for above model_id
 
 
 def data_ingestion():
@@ -36,3 +38,8 @@ def get_vector_store(docs):
 if __name__ == '__main__':
     docs=data_ingestion()
     get_vector_store(docs)
+
+
+# Run: python C:/Users/Personal/Desktop/DSMP2023-2024/Self_Researched_Projects/Proj-14/RAG-Application-AWS/QASystem/ingestion.py
+# i.e python <path of ingestion.py file in forward slash format> from your terminal to generate faiss_index directory in local
+# where your data embedding gets stored
