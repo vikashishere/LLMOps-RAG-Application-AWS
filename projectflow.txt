@@ -1,0 +1,7 @@
+1. Create a git repo and clone it in local.
+2. Setup your venv:
+    > conda create -p ragproj1 python==3.10 -y
+    > conda activate .... (now add your requirements.txt snd setup.py file)
+    > pip install -r requirements.txt
+3. Add ragproj1 to .gitignore
+4. Create a main scr/QASystem directory and __init__.py inside
