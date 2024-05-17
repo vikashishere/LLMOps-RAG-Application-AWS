@@ -30,9 +30,10 @@ PROMPT=PromptTemplate(
 )
 
 
+# You need to place access request for "Llama 2 Chat 13B" 
+# from "Model Access" section of AWS Bedrock page for below model_id
 def get_llama2_llm():
     llm=Bedrock(model_id="meta.llama2-13b-chat-v1",client=bedrock)
-    
     return llm
 
 def get_response_llm(llm,vectorstore_faiss,query):
@@ -44,9 +45,7 @@ def get_response_llm(llm,vectorstore_faiss,query):
             search_kwargs={"k":3}
         ),
         return_source_documents=True,
-        chain_type_kwargs={"prompt":PROMPT}
-        
-        
+        chain_type_kwargs={"prompt":PROMPT}        
     )
     answer=qa({"query":query})
     return answer["result"]

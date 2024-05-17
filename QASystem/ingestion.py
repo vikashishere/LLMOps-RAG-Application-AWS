@@ -42,4 +42,6 @@ if __name__ == '__main__':
 
 # Run: python C:/Users/Personal/Desktop/DSMP2023-2024/Self_Researched_Projects/Proj-14/RAG-Application-AWS/QASystem/ingestion.py
 # i.e python <path of ingestion.py file in forward slash format> from your terminal to generate faiss_index directory in local
-# where your data embedding gets stored
+# where your data embedding gets stored.
+    
+# (FYI, while running this file, it might show some warning in the terminal but that's ok)
