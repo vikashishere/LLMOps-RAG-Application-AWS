@@ -1,3 +1,8 @@
+'''
+FYI, please use Flask framework instead of Streamlit if deploying via 
+AWS App Runner service otherwise app will be deployed but UI will not render.
+'''
+
 1. Create a git repo and clone it in local.
 2. Setup your venv:
     > conda create -p ragproj1 python==3.10 -y
@@ -22,3 +27,14 @@
     AWS_SECRET_ACCESS_KEY
     AWS_DEFAULT_REGION
     AWS_ECR_REPO_URI
+11. Now commit and push your work to Github to see CICD action taking place. 
+    It'll push image to AWS ECR repo.
+12. Now we will deploy our ECR image via AWS App Runner service:
+    AWS App Runner>>Create an app runner service>>Container registery-Amazon ECR>>
+    >>Enter URI link of ECR repo or browse>>Automatic>>Create new service role>>
+    >>next>>name: rag-proj1>>2cpu & 6GB>>port - 8501 (same as Dockerfile)>>
+    >>hit next(keeping rest settings as default)>>Create and Deploy
+    (this will take several minutes but your app will be deployed and you'll get a URL to access it)
+
+Delete the AWS resource:
+User, ECR repo and AWS App Runner service
